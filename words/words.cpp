@@ -40,7 +40,7 @@ std::vector<std::string> parse(std::string str, const char* delimiterList,
   if (str.size() == 0) {
     return words;
   } else {
-    // Elements that are neither alphanumeric nor in keepList are replaced
+    // Elements that are neither alphabetic nor in keepList are replaced
     // by space
     std::replace_if(
         str.begin(), str.end(),
@@ -66,14 +66,14 @@ std::vector<std::string> parse(std::string str, const char* delimiterList,
     }
   }
   for (auto& word : words) {
-    /* strip(word, keepList); */
+    // Turn words into lower case
     std::transform(word.begin(), word.end(), word.begin(),
                    [](char c) { return std::tolower(c); });
   }
   return words;
 }
 
-// Remove stopwords from the vector, the stopwords are stored in lowercase line
+// Remove stopwords from the vector, the stopwords are stored in lower case line
 // by line in a file whose address is given by the input cstring.
 std::vector<std::string> filter(std::vector<std::string> words,
                                 const char* address) {

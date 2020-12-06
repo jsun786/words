@@ -1,0 +1,9 @@
+cc_test(
+	name="words_test",
+	srcs=["words_test.cpp"],
+	copts=["-Iexternal/gtest/include"],
+	deps=[
+		"@gtest//:main",
+		"//words"
+	]
+)
